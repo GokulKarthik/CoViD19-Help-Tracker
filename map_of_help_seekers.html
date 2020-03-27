@@ -46,18 +46,8 @@
     <script>
 
 
-	var volunteers, help_seekers;
+	var help_seekers;
 
-	function fetch_volunteers_data(){
-		$.ajax({
-			url: 'https://db-server-dot-corona-bot-gbakse.appspot.com/get_all_volunteers',
-			type: 'get',
-			success: function(response){
-				volunteers = response;
-				initMap();
-			}
-		});
-	}
 
 	function fetch_help_seekers_data(){
 		$.ajax({
@@ -65,6 +55,7 @@
 			type: 'get',
 			success: function(response){
 				help_seekers = response;
+				initMap();
 			}
 		});
 	}
@@ -99,19 +90,19 @@
 				radius: max_distance // in M
 			});
 
-			//set_volunteer_markers("true", current_pos);
-			set_help_seeker_markers("true", current_pos);
+			set_volunteer_markers("true", current_pos);
+			//set_help_seeker_markers("true", current_pos);
 
           }, function() {
             handleLocationError(true, map.getCenter());
-            //set_volunteer_markers("false", "false");
-            set_help_seeker_markers("false", "false");
+            set_volunteer_markers("false", "false");
+            //set_help_seeker_markers("false", "false");
           });
         } else {
           // Browser doesn't support Geolocation
           	handleLocationError(false, map.getCenter());
-        	//set_volunteer_markers("false", "false");
-        	set_help_seeker_markers("false", "false");
+        	set_volunteer_markers("false", "false");
+        	//set_help_seeker_markers("false", "false");
         }
 
         function handleLocationError(browserHasGeolocation, pos) {
@@ -135,59 +126,6 @@
 			return Math.round(d*1000); //return distance in m
 		}
 
-        
-        function set_volunteer_markers(display_info, user_position) {
-        	// Add some markers to the map.
-	        // Note: The code uses the JavaScript Array.prototype.map() method to
-	        // create an array of markers based on a given "locations" array.
-	        // The map() method here has nothing to do with the Google Maps API.
-	        var volunteer_markers = volunteers.map(function(entry, i) {
-
-				let loc = {
-					lat: parseFloat(entry['lat']),
-					lng: parseFloat(entry['long'])
-				}
-
-				var contentString = ''+
-					'<p>'+
-					'	<h3>'+entry['help_category']['main']+'</h3>'+
-					'	<h5>'+entry['help_category']['sub']+'</h3>'+
-					'	Datetime: '+entry['datetime'] + '<br>' +
-					'	Name: '+entry['name']+'<br>' +
-					'	Phone: '+entry['phone']+'<br>' +
-					'	Email: '+entry['email']+'<br>' +
-					'	Report: '+ entry['report_message'] +
-					'</p>';
-
-				var infowindow = new google.maps.InfoWindow({
-				  content: contentString
-				});
-
-				icon_url = "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|0000ff"
-				var marker = new google.maps.Marker({
-					position: loc, 
-					label: entry['name'],
-					icon: icon_url
-				});
-
-				//console.log(current_pos)
-				if (display_info) {
-					let haversine_distance = find_haversine_distance(user_position.lat, user_position.lng, loc.lat, loc.lng)
-					//console.log(haversine_distance, max_distance)
-					if (haversine_distance <= max_distance) {
-						marker.addListener('click', function() {
-				          infowindow.open(map, marker);
-				    	});
-					}
-				}
-			
-          	return marker
-        	});
-
-        	// Add a marker clusterer to manage the markers.
-        	var markerCluster = new MarkerClusterer(map, volunteer_markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', maxZoom:18});
-    	}
 
     	function set_help_seeker_markers(display_info, user_position) {
         	// Add some markers to the map.
@@ -244,7 +182,6 @@
 
     }
         
-    //fetch_volunteers_data();
     fetch_help_seekers_data();
 
     </script>
