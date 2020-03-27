@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Volunteers in Map</title>
+    <title>Marker Clustering</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -31,8 +31,9 @@
                <li><a href="./index.html">Reports</a></li>
                <li><a href="./volunteers.html">Volunteers</a></li>
 			   <li><a href="./help_seekers.html">Help Seekers</a></li>
-               <li><a href="./reports_map.html">See Reports in Map</a></li>
-			   <li class="active"><a href="#">See Volunteers in Map</a></li>
+               <li><a href="./map_of_reports.html">See Reports in Map</a></li>
+			   <li class='active'><a href="#">See Volunteers in Map</a></li>
+			   <li><a href="./map_of_help_seekers.html">See Help Seekers in Map</a></li>
             </ul>
          </div>
       </nav>
@@ -47,7 +48,7 @@
 
 	var volunteers, help_seekers;
 
-	function fetch_data(){
+	function fetch_volunteers_data(){
 		$.ajax({
 			url: 'https://db-server-dot-corona-bot-gbakse.appspot.com/get_all_volunteers',
 			type: 'get',
@@ -55,7 +56,9 @@
 				volunteers = response;
 			}
 		});
+	}
 
+	function fetch_help_seekers_data(){
 		$.ajax({
 			url: 'https://db-server-dot-corona-bot-gbakse.appspot.com/get_all_help_seekers',
 			type: 'get',
@@ -240,7 +243,8 @@
 
     }
         
-    fetch_data();
+    fetch_volunteers_data();
+    //fetch_help_seekers_data();
 
     </script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
