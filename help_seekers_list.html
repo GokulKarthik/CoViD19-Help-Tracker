@@ -6,27 +6,25 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="css/main.css">
-      <link href="https://unpkg.com/tabulator-tables@4.0.5/dist/css/tabulator.min.css" rel="stylesheet">
+      <link href="css/tabulator_semantic-ui.min.css" rel="stylesheet">
    </head>
    <body>
       <nav class="navbar navbar-inverse">
          <div class="container-fluid">
             <div class="navbar-header">
-               <a class="navbar-brand" href="#">Corona Help Others</a>
+               <a class="navbar-brand" href="#">Cornona Help Others</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-               <li><a href="./index.html">Reports</a></li>
-               <li class="active"><a href="#">Volunteers</a></li>
-               <li><a href="./help_seekers.html">Help Seekers</a></li>
-               <li><a href="./map_of_reports.html">See Reports in Map</a></li>
-               <li><a href="./map_of_volunteers.html">See Volunteers in Map</a></li>
-               <li><a href="./map_of_help_seekers.html">See Help Seekers in Map</a></li>
+               <li><a href="./index.html">See Help Seekers in Map</a></li>
+			      <li><a href="./map_of_volunteers.html">See Volunteers in Map</a></li>
+               <li class="active"><a href="#">Help Seekers</a></li>
+               <li><a href="./volunteers_list.html">Volunteers</a></li>
             </ul>
          </div>
       </nav>
       <br/>
       <div class="container-table">
-         <div id="volunteers_table"></div>
+         <div id="help_seekers_table"></div>
       </div>
       <footer class="page-footer font-large black">
          <div class="footer-copyright text-center py-5">© 2020 Copyright:
@@ -36,6 +34,6 @@
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
       <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.0.5/dist/js/tabulator.min.js"></script>
-      <script src="js/volunteers_load.js"></script>
+      <script src="js/help_seekers_load.js"></script>
    </body>
 </html>
