@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Marker Clustering</title>
+    <title>Corona Help Others</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -28,8 +28,8 @@
                <a class="navbar-brand" href="#">Cornona Help Others</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="#">See Help Seekers in Map</a></li>
-			    <li><a href="./map_of_volunteers.html">See Volunteers in Map</a></li>
+                <li class="active"><a href="#">See Help Seekers in Map</a></li>
+				<li><a href="./map_of_volunteers.html">See Volunteers in Map</a></li>
 				<li><a href="./help_seekers_list.html">Help Seekers</a></li>		
                 <li><a href="./volunteers_list.html">Volunteers</a></li>
             </ul>
@@ -88,18 +88,18 @@
 				radius: max_distance // in M
 			});
 
-			set_volunteer_markers("true", current_pos);
+			set_help_seeker_markers("true", current_pos);
 			//set_help_seeker_markers("true", current_pos);
 
           }, function() {
             handleLocationError(true, map.getCenter());
-            set_volunteer_markers("false", "false");
+            set_help_seeker_markers("false", "false");
             //set_help_seeker_markers("false", "false");
           });
         } else {
           // Browser doesn't support Geolocation
           	handleLocationError(false, map.getCenter());
-        	set_volunteer_markers("false", "false");
+        	set_help_seeker_markers("false", "false");
         	//set_help_seeker_markers("false", "false");
         }
 
