@@ -4,6 +4,10 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Corona Help Others</title>
+	<script defer src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTWa-MsmpxM5I3ndoqBc23zbTznzIXgBs">
+    </script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -20,6 +24,7 @@
     </style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+	
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -52,6 +57,7 @@
 			type: 'get',
 			success: function(response){
 				volunteers = response;
+				console.log("volunteers",volunteers);
 				initMap();
 			}
 		});
@@ -184,9 +190,6 @@
     fetch_volunteers_data();
 
     </script>
-    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTWa-MsmpxM5I3ndoqBc23zbTznzIXgBs">
-    </script>
+    
   </body>
 </html>

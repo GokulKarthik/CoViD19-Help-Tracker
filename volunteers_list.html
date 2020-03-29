@@ -7,33 +7,29 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="css/main.css">
       <link href="css/tabulator_semantic-ui.min.css" rel="stylesheet">
+      <script defer src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+      <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTWa-MsmpxM5I3ndoqBc23zbTznzIXgBs">
+      </script>
+      <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 60%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      </style>
    </head>
    <body>
-      <nav class="navbar navbar-inverse">
-         <div class="container-fluid">
-            <div class="navbar-header">
-               <a class="navbar-brand" href="#">Corona Help Others</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-               <li><a href="./index.html">See Help Seekers in Map</a></li>
-			      <li><a href="./map_of_volunteers.html">See Volunteers in Map</a></li>
-               <li><a href="./help_seekers_list.html">Help Seekers</a></li>
-               <li class="active"><a href="#">Volunteers</a></li>
-            </ul>
-         </div>
-      </nav>
-      <br/>
-      <div class="container-table">
-         <div id="volunteers_table"></div>
-      </div>
-      <footer class="page-footer font-large black">
-         <div class="footer-copyright text-center py-5">© 2020 Copyright:
-            <a href="https://onefourthlabs.com"> Made with ❤ by One Fourth Labs</a>
-         </div>
-      </footer>
+       <div id="map"></div>
+      <div id="volunteers_table"></div>
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
       <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.0.5/dist/js/tabulator.min.js"></script>
-      <script src="js/volunteers_load.js"></script>
+      <script defer src="js/volunteers_load.js"></script>
    </body>
 </html>

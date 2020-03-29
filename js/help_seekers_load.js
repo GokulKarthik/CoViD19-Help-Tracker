@@ -8,10 +8,13 @@ var table = new Tabulator("#help_seekers_table", {
         { title: "Name", field: "name", headerFilter: "input" },
         { title: "Email", field: "email", headerFilter: "input" },
         { title: "Phone", field: "phone", headerFilter: "number" },
-        {},
+        { title: "Help Category", field:"help_category.main", headerFilter: "input",},
+        { title: "Help Item", field:"help_category.sub", headerFilter: "input"},
+        { title: "Help Message", field: "help_message", formatter: "textarea", headerFilter: "input" },
+        { title: "DateTime", field: "datetime", headerFilter: "input" },
     ],
     pagination: "local",
-    paginationSize: 15,
+    paginationSize: 10,
 });
 
 function get_data() {
