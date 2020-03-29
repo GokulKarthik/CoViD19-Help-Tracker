@@ -5,7 +5,7 @@ var user_location;
 var max_distance = 10 * 1000;
 var markerCluster;
 var volunteer_markers;
-
+var executed_init_map = false;
 //Refer: https://coderwall.com/p/i817wa/one-line-function-to-detect-mobile-devices-with-javascript
 function isMobileDevice() {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -48,6 +48,10 @@ function get_data() {
       // Avoid page refreshing on next further api calls
       table.setData(data);
       table.setPage(Math.min(currentPage, table.getPageMax()));
+      if(!executed_init_map){
+        initMap();
+        executed_init_map=true;
+      }
     }
   };
   xmlhttp.send(null);
@@ -243,8 +247,6 @@ function set_volunteer_markers(display_info) {
 }
 
 get_data();
-
-initMap();
 
 // Fetch data every 5 secs
 setInterval(get_data, 5000);
